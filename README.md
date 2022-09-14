@@ -1,1 +1,2 @@
 # sylarfan.github.io
+ <a href = 'myapp://wms.com/openwith?name=wms1993&age=24'> 打开app </a>
