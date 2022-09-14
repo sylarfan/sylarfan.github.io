@@ -31,15 +31,11 @@
         }
 
 		function AddParam(obj) {
-			alert("hello");
 			var ser = getQueryVariable("ser");
-            alert(ser);
 			var id = getQueryVariable("id");
-            alert(id);
 			var tp = getQueryVariable("tp");
-            alert(tp);
-			obj.href = "dsinapp://dsin.app/openwith?ser=" + ser + "id=" + id + "tp=" + tp;
-			alert(ser);
+			var url = "dsinapp://dsin.app/openwith?ser=" + ser + "id=" + id + "tp=" + tp;
+			window.open(url);
         }
 	</script>
 </head>
@@ -48,7 +44,7 @@
 			<header id="header">
 				<div class="content">
 					<ul class="actions">
-						<li><a onclick="AddParam(this)" class="button primary icon solid fa-download">打开D</a></li>
+						<li><a id="btn" onclick="AddParam(this)" class="button primary icon solid fa-download">打开E</a></li>
 					</ul>
 				</div>
 			</header>
