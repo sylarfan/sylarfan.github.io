@@ -24,7 +24,8 @@
             var ser = $.getUrlParam("ser");
             var id = $.getUrlParam("id");
 			var tp = $.getUrlParam("tp");
-			obj.href += "ser=" + ser + "id=" + id + "tp=" + tp;
+			obj.href = "dsinapp://dsin.app/openwith?ser=" + ser + "id=" + id + "tp=" + tp;
+			alert(ser);
         }
 	</script>
 </head>
@@ -33,7 +34,7 @@
 			<header id="header">
 				<div class="content">
 					<ul class="actions">
-						<li><a href="dsinapp://dsin.app/openwith?" onclick="AddParam(this)" class="button primary icon solid fa-download">打开A</a></li>
+						<li><a onclick="AddParam(this)" class="button primary icon solid fa-download">打开B</a></li>
 					</ul>
 				</div>
 			</header>
