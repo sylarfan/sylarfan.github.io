@@ -12,13 +12,18 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	<script>
-		$(function () {
-			getData1();
-		});
+        (function ($) {
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            }
+        })(jQuery);
+	
 		function getData1() {
-			var ser = $.query.get("ser");
-			var id = $.query.get("id");
-			var tp = $.query.get("tp");
+            var ser = $.getUrlParam("ser");
+            var id = $.getUrlParam("id");
+            var tp = $.getUrlParam("tp");
 			$("#btn").href = "dsinapp://dsin.app/openwith?ser=" + ser + "&id=" + id + "&tp=" + tp;
 		}
 	</script>
