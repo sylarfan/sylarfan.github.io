@@ -1,25 +1,16 @@
-<!DOCTYPE HTML>
-<!--
-	Fractal by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>点盛</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta content="false" name="twcClient" id="twcClient"/>
+</head>
+<body>
 	<script>
-        (function ($) {
-            $.getUrlParam = function (name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if (r != null) return unescape(r[2]); return null;
-            }
-		})(jQuery);
-
         function getQueryVariable(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
@@ -29,37 +20,20 @@
             }
             return (false);
         }
+        var ser = getQueryVariable("ser");
+		var id = getQueryVariable("id");
+		var tp = getQueryVariable("tp");
+		var url = "http://xag.tpddns.cn:60002/?ser=" + ser + "&id=" + id + "&tp=" + tp;
+		var request = new XMLHttpRequest();
+		request.open("HEAD", url, true);
+		request.send();
 
-		function AddParam(obj) {
-			var ser = getQueryVariable("ser");
-			var id = getQueryVariable("id");
-			var tp = getQueryVariable("tp");
-			var url = "dsinapp://dsin.app/openwith?ser=" + ser + "&id=" + id + "&tp=" + tp;
-			window.open(url);
-        }
+		request.onreadystatechange = function() {
+			if(this.readyState == this.HEADERS_RECEIVED) {
+				window.location.replace(url);
+			}
+		}
 		
-		jQuery(function(){
-   jQuery('#btn').click();
-});
-	</script>
-</head>
-	<body class="is-preload">
-		<!-- Header -->
-			<header id="header">
-				<div class="content">
-					<ul class="actions">
-						<li><a id="btn" onclick="AddParam(this)" class="button primary icon solid fa-download">打开</a></li>
-					</ul>
-				</div>
-			</header>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+     </script>
+</body>
 </html>
